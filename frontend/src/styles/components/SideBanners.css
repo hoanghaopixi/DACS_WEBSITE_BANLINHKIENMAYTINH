@@ -1,0 +1,76 @@
+.side-banners-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  pointer-events: none;
+}
+
+.side-banners-left {
+  right: calc(50vw + 650px);
+}
+
+.side-banners-right {
+  left: calc(50vw + 650px);
+}
+
+.side-banners {
+  position: sticky;
+  top: 160px; /* Cố định vị trí 220px từ mép trên màn hình */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+  pointer-events: auto; /* Kích hoạt lại click cho ảnh */
+  transition: opacity 0.3s ease;
+}
+
+/* Ẩn khi màn hình quá nhỏ */
+@media (max-width: 1640px) {
+  .side-banners-wrapper {
+    display: none !important;
+  }
+}
+
+.side-banner-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.side-banner-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.side-banner-item {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.side-banner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.side-banner-label {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 0.6rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+

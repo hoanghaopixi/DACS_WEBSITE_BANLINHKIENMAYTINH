@@ -1,0 +1,106 @@
+/* ====== CSS Variables — controlled by SettingsContext ====== */
+:root {
+  /* Defaults (light theme) */
+  --app-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --app-font-size: 14px;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: #a5b4fc;
+
+  /* Semantic colors — light */
+  --bg-body: #eef3f9;
+  --bg-body-gradient: linear-gradient(180deg, #f5f8fc 0%, #eef3f9 100%);
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-input: #ffffff;
+  --bg-sidebar: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  font-family: var(--app-font);
+  font-size: var(--app-font-size);
+  color: var(--text-primary);
+  background: var(--bg-body);
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====== Dark Theme ====== */
+[data-theme="dark"] {
+  --bg-body: #0f172a;
+  --bg-body-gradient: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --bg-input: #0f172a;
+  --bg-sidebar: #020617;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border-color: #475569;
+  --border-light: #334155;
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+/* Disable animations when turned off */
+[data-animations="false"] *,
+[data-animations="false"] *::before,
+[data-animations="false"] *::after {
+  animation-duration: 0s !important;
+  transition-duration: 0s !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg-body-gradient);
+  color: var(--text-primary);
+  font-family: var(--app-font);
+  font-size: var(--app-font-size);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+

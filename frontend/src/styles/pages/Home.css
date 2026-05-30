@@ -1,0 +1,145 @@
+.home-page {
+  padding: 28px 0 0;
+  position: relative;
+}
+
+.home-main {
+  min-height: 60vh;
+  background: var(--bg-card, rgba(255, 255, 255, 0.78));
+  border: 1px solid var(--border-color, #e3ebf5);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow-card, 0 18px 48px rgba(10, 37, 64, 0.08));
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.products-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color, #e6edf6);
+  flex-wrap: nowrap;
+}
+
+.products-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text-primary, #10233f);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+.no-products {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted, #6c7b90);
+  font-size: 1.05rem;
+}
+
+/* ========== Brand Logo Bar ========== */
+.brand-bar-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.brand-scroll-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.brand-scroll-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+
+.brand-logo-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
+}
+
+.brand-logo-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 80px;
+  height: 50px;
+}
+
+.brand-logo-item img {
+  max-height: 32px;
+  max-width: 80px;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: all 0.25s ease;
+}
+
+.brand-logo-item span {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.brand-logo-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.brand-logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.brand-logo-item.active {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+.brand-logo-item.active img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.brand-logo-item.active span {
+  color: #2563eb;
+}

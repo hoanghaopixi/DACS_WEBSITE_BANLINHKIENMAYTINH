@@ -1,0 +1,228 @@
+.login-page {
+  min-height: calc(100vh - 220px);
+  padding: 44px 0;
+  background: var(--bg-body-gradient, linear-gradient(180deg, #f4f8fd 0%, #edf2f8 100%));
+}
+
+.login-container.compact {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 24px;
+  background: var(--bg-card, rgba(255, 255, 255, 0.96));
+  border: 1px solid var(--border-color, rgba(12, 49, 102, 0.08));
+  box-shadow: var(--shadow-card, 0 22px 60px rgba(7, 37, 89, 0.1));
+  transition: background 0.3s ease;
+}
+
+.login-header.centered,
+.centered-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-header h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  color: var(--text-primary, #0f172a);
+}
+
+.login-header p {
+  margin: 0;
+  color: var(--text-muted, #5a6b84);
+}
+
+.auth-toggle {
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--bg-card-hover, #edf2fa);
+  width: fit-content;
+  margin: 22px auto 26px;
+}
+
+.auth-toggle button {
+  border: none;
+  padding: 12px 22px;
+  background: transparent;
+  color: var(--text-secondary, #40506f);
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.auth-toggle button.active {
+  background: linear-gradient(135deg, var(--primary, #0f62fe) 0%, #0a84ff 100%);
+  color: #fff;
+}
+
+.compact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary, #173057);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-group input,
+.quick-auth-card input {
+  width: 100%;
+  border: 1px solid var(--border-color, #d7e2f1);
+  border-radius: 14px;
+  background: var(--bg-input, #f9fbff);
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--text-primary, #0f172a);
+}
+
+.form-alert,
+.btn-submit,
+.quick-auth {
+  grid-column: 1 / -1;
+}
+
+.form-alert {
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-alert.error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.form-alert.success {
+  background: #ecfdf3;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.btn-submit,
+.btn-alt {
+  border: none;
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary, #0f62fe) 0%, #0149c6 100%);
+}
+
+.quick-auth-simplified {
+  grid-column: 1 / -1;
+  margin-top: 15px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted, #7d8ea6);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-color, #d7e2f1);
+}
+
+.divider span {
+  padding: 0 16px;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-social {
+  border: 1px solid var(--border-color, #d7e2f1);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: var(--bg-card, white);
+  color: var(--text-primary, #0f172a);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.btn-social.google {
+  color: #ef4444; 
+}
+
+
+@media (max-width: 900px) {
+  .compact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .login-container.compact {
+    padding: 24px;
+  }
+}
+
+/* Blocked / disabled state */
+.login-blocked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 12px;
+}
+
+.login-blocked .blocked-icon {
+  font-size: 3rem;
+  color: #ef4444;
+  opacity: 0.8;
+}
+
+.login-blocked h2,
+.login-blocked h3 {
+  margin: 0;
+  color: var(--text-primary, #0f172a);
+  font-weight: 700;
+}
+
+.login-blocked p {
+  margin: 0;
+  color: var(--text-muted, #64748b);
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+.login-blocked .btn-submit {
+  margin-top: 8px;
+  padding: 12px 32px;
+  cursor: pointer;
+}
