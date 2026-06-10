@@ -104,3 +104,26 @@ img {
   position: relative;
 }
 
+/* ====== Post Content — center images ====== */
+.post-content-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.post-content-body figure {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.post-content-body p {
+  text-align: justify;
+}
+
+.post-content-body p img {
+  margin-left: auto;
+  margin-right: auto;
+}
+

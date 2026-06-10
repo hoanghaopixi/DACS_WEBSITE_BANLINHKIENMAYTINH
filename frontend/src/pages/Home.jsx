@@ -6,6 +6,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../styles/pages/Home.css';
 
 function Home() {
+  const [allProducts, setAllProducts] = useState([]);
   const [allFeatured, setAllFeatured] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [cpuProducts, setCpuProducts] = useState([]);
@@ -28,14 +29,17 @@ function Home() {
           productService.getBestSellingByCategory('màn hình', 5),
           brandService.getAllBrands(),
         ]);
-        setAllFeatured(data.slice(0, 20));
-        setFeaturedProducts(data.slice(0, 8));
+        const sorted = [...data].sort((a, b) => b.averageRating - a.averageRating || b.soldQuantity - a.soldQuantity);
+        setAllProducts(sorted);
+        setAllFeatured(sorted.slice(0, 20));
+        setFeaturedProducts(sorted.slice(0, 20));
         setCpuProducts(cpuData);
         setMouseProducts(mouseData);
         setMonitorProducts(monitorData);
         setBrands(brandData.filter(b => b.logo));
       } catch (error) {
         console.error('Không tải được danh sách sản phẩm:', error);
+        setAllProducts([]);
         setAllFeatured([]);
         setFeaturedProducts([]);
         setCpuProducts([]);
@@ -53,19 +57,19 @@ function Home() {
   const handleBrandFilter = (brand) => {
     if (selectedBrand && selectedBrand.maThuongHieu === brand.maThuongHieu) {
       setSelectedBrand(null);
-      setFeaturedProducts(allFeatured.slice(0, 8));
+      setFeaturedProducts(allFeatured);
     } else {
       setSelectedBrand(brand);
-      const filtered = allFeatured.filter(
-        p => p.brand?.toLowerCase() === brand.tenThuongHieu?.toLowerCase()
-      );
-      setFeaturedProducts(filtered.length > 0 ? filtered : []);
+      const filtered = allProducts
+        .filter(p => p.brand?.toLowerCase() === brand.tenThuongHieu?.toLowerCase())
+        .slice(0, 20);
+      setFeaturedProducts(filtered);
     }
   };
 
   const handleShowAll = () => {
     setSelectedBrand(null);
-    setFeaturedProducts(allFeatured.slice(0, 8));
+    setFeaturedProducts(allFeatured);
   };
 
   // Brand bar scroll

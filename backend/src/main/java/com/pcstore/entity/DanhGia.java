@@ -44,6 +44,6 @@ public class DanhGia {
     @Builder.Default
     private Boolean daChinhSua = false;
 
-    @OneToMany(mappedBy = "danhGia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "danhGia", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<HinhAnhDanhGia> hinhAnhDanhGias;
 }
